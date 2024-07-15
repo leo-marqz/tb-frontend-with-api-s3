@@ -124,6 +124,10 @@ function handleFormToUploadMultipleFiles(){
         let formData = new FormData();
         let files = e.target.elements['form-files'].files;
         
+        if(files.length === 0){
+            return;
+        }
+        
         for(let i=0; i<files.length; i++){
             formData.append(`file${i}`, files[i], files[i].name);
         }
